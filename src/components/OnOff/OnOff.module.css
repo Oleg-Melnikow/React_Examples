@@ -1,0 +1,28 @@
+.wrap {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    align-items: center;
+}
+
+.block {
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.red {
+    background: red;
+}
+
+.green {
+    background: green;
+}
+
+.circle{
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
 
 type PageTitlePropsType = {
     title: string
@@ -14,6 +15,7 @@ function App() {
             <Rating value={3}/>
             <Accordion titleValue="Menu" collapsed={false}/>
             <Rating value={1}/>
+            <OnOff/>
         </div>
     );
 }
