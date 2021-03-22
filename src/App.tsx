@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion";
+import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import { UnControlOnOff } from './components/OnOff/UncontrolOnOff';
+import UnControlledAccordion from "./components/Accordion/UnControlledAccordion";
 
 type PageTitlePropsType = {
     title: string
@@ -20,6 +21,7 @@ function App() {
             <Accordion titleValue="Menu" collapsed={false}/>
             <Rating value={1}/>
             <UnControlOnOff/>
+            <UnControlledAccordion titleValue="Navigation"/>
             <OnOff on={on} setOn={setOn}/>
         </div>
     );
