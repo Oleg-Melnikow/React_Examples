@@ -5,6 +5,7 @@ import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import { UnControlOnOff } from './components/OnOff/UncontrolOnOff';
 import UnControlledAccordion from "./components/Accordion/UnControlledAccordion";
+import {UnControlledRating} from "./components/Rating/UnControlledRating";
 
 type PageTitlePropsType = {
     title: string
@@ -23,6 +24,7 @@ function App() {
             <UnControlOnOff/>
             <UnControlledAccordion titleValue="Navigation"/>
             <OnOff on={on} setOn={setOn}/>
+            <UnControlledRating/>
         </div>
     );
 }
