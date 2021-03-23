@@ -2,26 +2,31 @@ import React from 'react';
 
 type AccordionPropsType = {
     titleValue: string,
-    collapsed: boolean
+    collapsed: boolean,
+    toggleHandler: () => void
 }
 
 type AccordionTitlePropsType = {
-    title: string
+    title: string,
+    toggleHandler: () => void
 }
 
 function Accordion(props: AccordionPropsType) {
-    console.log("Accordion rendering")
+
+    let {collapsed, toggleHandler, titleValue} = props
+
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/>
-            {!props.collapsed && <AccordionBody/>}
+            <AccordionTitle title={titleValue} toggleHandler={toggleHandler}/>
+            {!collapsed && <AccordionBody/>}
         </div>
     )
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
+
     return <>
-        <h3>{props.title}</h3>
+        <h3 onClick={props.toggleHandler}>{props.title}</h3>
     </>
 }
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import { UnControlOnOff } from './components/OnOff/UncontrolOnOff';
 import UnControlledAccordion from "./components/Accordion/UnControlledAccordion";
@@ -13,14 +13,19 @@ type PageTitlePropsType = {
 
 function App() {
 
-    let [on, setOn] = useState<boolean>(false)
+    let [on, setOn] = useState<boolean>(true);
+    let [value, setValue] = useState<RatingValueType>(0);
+    let [collapsed, setCollapsed] = useState<boolean>(false)
+
+    function toggleHandler(){
+        setCollapsed(!collapsed)
+    }
 
     return (
         <div className="App">
             <PageTitle title="This App component"/>
-            <Rating value={3}/>
-            <Accordion titleValue="Menu" collapsed={false}/>
-            <Rating value={1}/>
+            <Rating value={value} setValue={setValue} />
+            <Accordion titleValue="Menu" collapsed={collapsed} toggleHandler={toggleHandler}/>
             <UnControlOnOff/>
             <UnControlledAccordion titleValue="Navigation"/>
             <OnOff on={on} setOn={setOn}/>
