@@ -11,7 +11,7 @@ type AccordionTitlePropsType = {
     toggleHandler: () => void
 }
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
 
     let {collapsed, toggleHandler, titleValue} = props
 
@@ -39,5 +39,3 @@ function AccordionBody() {
         </ul>
     </>
 }
-
-export default Accordion;
