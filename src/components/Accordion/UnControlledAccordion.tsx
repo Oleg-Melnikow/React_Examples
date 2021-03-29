@@ -9,7 +9,7 @@ type AccordionTitlePropsType = {
     toggleHandler: () => void
 }
 
-function UnControlledAccordion(props: AccordionPropsType) {
+export function UnControlledAccordion(props: AccordionPropsType) {
 
     let [collapsed, setCollapsed] = useState<boolean>(false)
 
@@ -40,5 +40,3 @@ function AccordionBody() {
         </ul>
     </>
 }
-
-export default UnControlledAccordion;

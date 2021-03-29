@@ -4,7 +4,7 @@ import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import { UnControlOnOff } from './components/OnOff/UncontrolOnOff';
-import UnControlledAccordion from "./components/Accordion/UnControlledAccordion";
+import {UnControlledAccordion} from "./components/Accordion/UnControlledAccordion";
 import {UnControlledRating} from "./components/Rating/UnControlledRating";
 
 type PageTitlePropsType = {

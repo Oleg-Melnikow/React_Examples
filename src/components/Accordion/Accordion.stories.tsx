@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {Accordion} from "./Accordion";
+import {Accordion, AccordionPropsType} from "./Accordion";
 import {action} from "@storybook/addon-actions";
+import {Story} from "@storybook/react";
 
 
 export default {
@@ -10,7 +11,14 @@ export default {
 
 const callback = action("accordion mode change event")
 
-export const CollapsedMode = () => <Accordion collapsed={true} toggleHandler={callback} titleValue={"Users"}/>
+const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
+export const CollapsedMode = Template.bind({});
+CollapsedMode.args = {
+    collapsed: true,
+    titleValue: "Users",
+    toggleHandler: callback
+}
+
 export const UnCollapsedMode = () => <Accordion collapsed={false} toggleHandler={callback} titleValue={"Menu"}/>
 
 export const ChangeMode = () => {
