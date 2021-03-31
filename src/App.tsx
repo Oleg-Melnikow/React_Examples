@@ -16,6 +16,11 @@ function App() {
     let [on, setOn] = useState<boolean>(true);
     let [value, setValue] = useState<RatingValueType>(0);
     let [collapsed, setCollapsed] = useState<boolean>(false)
+    const items = [{title: "Den", value: 1}, {title: "Jack", value: 2}, {title: "Nick", value: 3}]
+
+    function onClickItem(value: number){
+        alert(`click item: ${value}`)
+    }
 
     function toggleHandler(){
         setCollapsed(!collapsed)
@@ -25,7 +30,7 @@ function App() {
         <div className="App">
             <PageTitle title="This App component"/>
             <Rating value={value} setValue={setValue} />
-            <Accordion titleValue="Menu" collapsed={collapsed} toggleHandler={toggleHandler}/>
+            <Accordion titleValue="Menu" collapsed={collapsed} toggleHandler={toggleHandler} items={items} onClick={onClickItem}/>
             <UnControlOnOff/>
             <UnControlledAccordion titleValue="Navigation"/>
             <OnOff on={on} setOn={setOn}/>

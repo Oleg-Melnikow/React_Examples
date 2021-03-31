@@ -9,7 +9,8 @@ export default {
     component: Accordion
 }
 
-const callback = action("accordion mode change event")
+const callback = action("accordion mode change event");
+const onClickCallback = action("accordion item was clicked");
 
 const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
 export const CollapsedMode = Template.bind({});
@@ -19,9 +20,13 @@ CollapsedMode.args = {
     toggleHandler: callback
 }
 
-export const UnCollapsedMode = () => <Accordion collapsed={false} toggleHandler={callback} titleValue={"Menu"}/>
+const items = [{title: "Den", value: 1}, {title: "Jack", value: 2}, {title: "Nick", value: 3}];
+
+export const UnCollapsedMode = () => <Accordion collapsed={false} toggleHandler={callback} titleValue={"Menu"}
+                                                items={items} onClick={onClickCallback}/>
 
 export const ChangeMode = () => {
     const [value, setValue] = useState<boolean>(true);
-    return <Accordion collapsed={value} toggleHandler={()=>setValue(!value)} titleValue={"Menu"}/>
+    return <Accordion collapsed={value} toggleHandler={() => setValue(!value)} titleValue={"Menu"} items={items}
+                      onClick={onClickCallback}/>
 }

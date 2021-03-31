@@ -3,12 +3,24 @@ import React from 'react';
 export type AccordionPropsType = {
     titleValue: string,
     collapsed: boolean,
-    toggleHandler: () => void
+    toggleHandler: () => void,
+    items: ItemType[],
+    onClick: (value: number) => void
 }
 
 type AccordionTitlePropsType = {
     title: string,
     toggleHandler: () => void
+}
+
+export type AccordionBodyPropsType = {
+    items: ItemType[],
+    onClick: (value: number) => void
+}
+
+type ItemType = {
+    title: string,
+    value: number
 }
 
 export function Accordion(props: AccordionPropsType) {
@@ -18,7 +30,7 @@ export function Accordion(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={titleValue} toggleHandler={toggleHandler}/>
-            {!collapsed && <AccordionBody/>}
+            {!collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
     )
 }
@@ -30,12 +42,10 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     </>
 }
 
-function AccordionBody() {
+function AccordionBody(props: AccordionBodyPropsType) {
     return <>
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map(el => <li key={el.value} onClick={() => props.onClick(el.value)}>{el.title}</li>)}
         </ul>
     </>
 }
