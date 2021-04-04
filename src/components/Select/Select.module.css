@@ -1,0 +1,14 @@
+.select h3{
+    border: 1px solid black;
+    display: flex;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.items{
+    border: 1px solid red;
+}
+
+.item.selected{
+    background-color: aqua;
+}
