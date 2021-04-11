@@ -8,6 +8,7 @@ export const SimpleExamples = () => {
     console.log("SimpleExamples");
     const [count, setCounter] = useState(1);
     const [fake, setFake] = useState(1);
+    const [date, setDate] = useState('')
 
     useEffect(() => {
         console.log("useEffect every render");
@@ -19,6 +20,16 @@ export const SimpleExamples = () => {
         console.log("useEffect first render and every counter render");
     },[count]);
 
+    useEffect(()=>{
+        setInterval(() => {
+            let date = new Date();
+            function setCorrect(date: number){
+               return date > 9 ? date : `0${date}`
+            }
+            setDate(`${setCorrect(date.getHours())}:${setCorrect(date.getMinutes())}:${setCorrect(date.getSeconds())}`)
+        },1000)
+    }, [])
+
     return <>
         <div>
             <span>fake</span>
@@ -29,6 +40,9 @@ export const SimpleExamples = () => {
             <span>count</span>
             <button onClick={() => setCounter(count + 1)}>+</button>
             <span>{count}</span>
+        </div>
+        <div>
+            Time: {date}
         </div>
     </>
 }
